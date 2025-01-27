@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Set dark theme as default */
+  :root {
+    color-scheme: dark;
+    --background: 120 3% 10%;    /* #191A19 */
+    --primary: 114 45% 43%;      /* #4E9F3D */
+    --text: 114 45% 43%;         /* #4E9F3D */
+    --primary-glow: rgba(78, 159, 61, 0.2);
+  }
+
+  /* Light theme colors */
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --background: 74 45% 79%;    /* #D8E9A8 */
+    --primary: 142 47% 22%;      /* #1E5128 */
+    --text: 142 47% 22%;         /* #1E5128 */
+    --primary-glow: rgba(30, 81, 40, 0.2);
+  }
+
+  /* Critical: Apply background color to html and body */
+  html {
+    @apply min-h-screen;
+    background-color: hsl(var(--background));
+    font-family: 'Geist Mono', monospace;
+  }
+
+  body {
+    @apply min-h-screen text-text;
+    background-color: hsl(var(--background));
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+/* Ensure proper theme transitions */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

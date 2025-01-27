@@ -1,0 +1,14 @@
+/* Glow animation for the loading logo */
+@keyframes logoGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px var(--primary-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px var(--primary-glow));
+  }
+}
+
+.logo-glow {
+  animation: logoGlow 2s ease-in-out infinite;
+  will-change: filter;
+}

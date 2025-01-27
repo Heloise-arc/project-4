@@ -1,0 +1,34 @@
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Restore cursor for interactive elements */
+a, button, input, textarea, select, [role="button"] {
+  cursor: pointer !important;
+}
+
+/* Restore text cursor for text inputs */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="number"],
+textarea {
+  cursor: text !important;
+}
+
+/* Restore default cursor for disabled elements */
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed !important;
+}
+
+/* Restore resize cursor for resizable elements */
+textarea {
+  cursor: auto !important;
+}
+
+/* Restore text selection cursor */
+p, h1, h2, h3, h4, h5, h6, span, div {
+  cursor: default !important;
+}
