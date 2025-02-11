@@ -20,7 +20,7 @@ export const OTCInfoBox = () => {
           
           <div>
             <h4 className="text-[#4E9F3D]/80 font-medium mb-1">Price Per Token:</h4>
-            <p className="text-[#4E9F3D]">0.01 USDC</p>
+            <p className="text-[#4E9F3D]">0.1 USDC</p>
           </div>
         </div>
       </Accordion>
@@ -28,7 +28,7 @@ export const OTCInfoBox = () => {
       <Accordion title="Token Information">
         <div className="space-y-4 font-mono">
           <div>
-            <h4 className="text-[#4E9F3D]/80 font-medium mb-1">Total $SUPURR Supply:</h4>
+            <h4 className="text-[#4E9F3D]/80 font-medium mb-1">Total $SPR Supply:</h4>
             <p className="text-[#4E9F3D]">800,000,000 tokens</p>
           </div>
           

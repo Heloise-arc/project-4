@@ -94,10 +94,10 @@ export const TradeDetailsStep: React.FC<TradeDetailsStepProps> = ({ onComplete, 
         <div className="text-[#4E9F3D]/60 text-sm font-mono">
           <div className="flex items-center gap-1">
             <span>Expected token amount:</span>
-            <Tooltip content="You will receive 100 $SUPURR tokens for every 1 USDC spent." />
+            <Tooltip content="You will receive 10 $SPR tokens for every 1 USDC spent." />
           </div>
           <p className="text-[#4E9F3D] mt-1">
-            {amount ? `${(Number(amount) * 100).toLocaleString()} $SUPURR` : '0 $SUPURR'}
+            {amount ? `${(Number(amount) * 10).toLocaleString()} $SPR` : '0 $SPR'}
           </p>
         </div>
 

@@ -19,7 +19,7 @@ export const ConfirmationStep: React.FC<ConfirmationStepProps> = ({ tradeAmount 
     return () => clearTimeout(timer);
   }, []);
 
-  const tokenAmount = tradeAmount * 100; // 0.01 USDC per token
+  const tokenAmount = tradeAmount * 10; // 0.1 USDC per token
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -96,14 +96,14 @@ export const ConfirmationStep: React.FC<ConfirmationStepProps> = ({ tradeAmount 
             <motion.div variants={itemVariants}>
               <h3 className="text-[#4E9F3D]/80 font-mono mb-1">Tokens to Receive</h3>
               <p className="text-[#4E9F3D] font-mono text-lg font-medium">
-                {tokenAmount.toLocaleString()} $SUPURR
+                {tokenAmount.toLocaleString()} $SPR
               </p>
             </motion.div>
 
             <motion.div variants={itemVariants}>
               <h3 className="text-[#4E9F3D]/80 font-mono mb-1">Token Price</h3>
               <p className="text-[#4E9F3D] font-mono text-lg font-medium">
-                0.01 USDC
+                0.1 USDC
               </p>
             </motion.div>
           </div>

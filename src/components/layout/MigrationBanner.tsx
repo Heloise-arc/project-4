@@ -19,7 +19,7 @@ export const MigrationBanner: React.FC = () => {
         >
           <div className="flex items-center">
             <CoinFlipAnimation />
-            <span className="text-primary text-sm">$SUPURR OTC Sale</span>
+            <span className="text-primary text-sm">$SPR OTC Sale</span>
           </div>
         </motion.div>
       </Link>
