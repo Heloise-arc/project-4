@@ -33,7 +33,7 @@ export const OTCPage: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="bg-[#191A19] rounded-xl border border-[#4E9F3D]/20 shadow-lg shadow-[#4E9F3D]/5 p-6"
+        className="bg-background rounded-xl border border-primary/20 shadow-lg shadow-primary/5 p-6"
       >
         {currentStep === 'social' && (
           <SocialConnectStep onComplete={handleSocialComplete} />

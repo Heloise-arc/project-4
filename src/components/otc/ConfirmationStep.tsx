@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Check } from 'lucide-react';
 import { Confetti } from './Confetti';
 
 interface ConfirmationStepProps {
@@ -59,64 +59,51 @@ export const ConfirmationStep: React.FC<ConfirmationStepProps> = ({ tradeAmount 
   return (
     <>
       {showConfetti && <Confetti />}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="space-y-8 text-center"
-      >
-        <motion.div 
-          className="flex justify-center"
-          variants={checkmarkVariants}
-        >
-          <CheckCircle className="w-16 h-16 text-[#4E9F3D]" />
-        </motion.div>
-
-        <motion.div variants={itemVariants}>
-          <h2 className="text-2xl font-mono font-semibold text-[#4E9F3D] mb-2">
-            Trade Confirmed
-          </h2>
-          <p className="text-[#4E9F3D]/80 font-mono">
-            Your trade has been confirmed and is being processed
-          </p>
-        </motion.div>
-
-        <motion.div 
-          variants={itemVariants}
-          className="p-6 bg-[#191A19] rounded-lg border border-[#4E9F3D]/20"
-        >
-          <div className="space-y-4">
-            <motion.div variants={itemVariants}>
-              <h3 className="text-[#4E9F3D]/80 font-mono mb-1">Amount Paid</h3>
-              <p className="text-[#4E9F3D] font-mono text-lg font-medium">
-                {tradeAmount.toLocaleString()} USDC
-              </p>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <h3 className="text-[#4E9F3D]/80 font-mono mb-1">Tokens to Receive</h3>
-              <p className="text-[#4E9F3D] font-mono text-lg font-medium">
-                {tokenAmount.toLocaleString()} $SPR
-              </p>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <h3 className="text-[#4E9F3D]/80 font-mono mb-1">Token Price</h3>
-              <p className="text-[#4E9F3D] font-mono text-lg font-medium">
-                0.1 USDC
-              </p>
+      <div className="space-y-6">
+        <div className="text-center">
+          <div className="flex justify-center mb-4">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              className="w-16 h-16 rounded-full bg-background border border-primary flex items-center justify-center"
+            >
+              <Check className="w-8 h-8 text-primary" />
             </motion.div>
           </div>
-        </motion.div>
+          
+          <h2 className="text-2xl font-mono text-primary mb-2">Trade Confirmed</h2>
+          <p className="text-primary font-mono">Your trade has been confirmed and is being processed</p>
+        </div>
 
-        <motion.div 
-          variants={itemVariants}
-          className="text-[#4E9F3D]/80 font-mono text-sm"
-        >
-          <p>Tokens will be automatically sent to your wallet</p>
-          <p>Please make sure your Hyperliquid account is set up</p>
-        </motion.div>
-      </motion.div>
+        <div className="p-6 rounded-lg bg-background border-primary/20 border space-y-4">
+          <div>
+            <h3 className="text-primary/80 font-mono mb-1">Amount Paid</h3>
+            <p className="text-primary font-mono text-lg font-medium">
+              {tradeAmount} USDC
+            </p>
+          </div>
+          
+          <div>
+            <h3 className="text-primary/80 font-mono mb-1">Tokens to Receive</h3>
+            <p className="text-primary font-mono text-lg font-medium">
+              {tokenAmount.toLocaleString()} $SPR
+            </p>
+          </div>
+          
+          <div>
+            <h3 className="text-primary/80 font-mono mb-1">Token Price</h3>
+            <p className="text-primary font-mono text-lg font-medium">
+              0.1 USDC
+            </p>
+          </div>
+        </div>
+
+        <div className="text-center space-y-2">
+          <p className="text-primary font-mono">Tokens will be automatically sent to your wallet</p>
+          <p className="text-primary/60 font-mono">Please make sure your Hyperliquid account is set up</p>
+        </div>
+      </div>
     </>
   );
 };

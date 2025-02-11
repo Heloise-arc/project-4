@@ -3,27 +3,25 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 interface AccordionProps {
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
   defaultOpen?: boolean;
+  className?: string;
 }
 
-export const Accordion: React.FC<AccordionProps> = ({ title, children, defaultOpen = false }) => {
+export function Accordion({ title, children, defaultOpen = false, className = '' }: AccordionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border border-[#4E9F3D]/20 rounded-lg overflow-hidden">
+    <div className={`border border-[#4E9F3D]/20 rounded-lg overflow-hidden ${className}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full p-4 flex items-center justify-between bg-black/30 hover:bg-black/40 transition-colors"
       >
-        <span className="text-[#4E9F3D] font-mono font-medium">{title}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <ChevronDown className="w-5 h-5 text-[#4E9F3D]" />
-        </motion.div>
+        {title}
+        <ChevronDown 
+          className={`w-5 h-5 text-primary transition-transform ${isOpen ? 'rotate-180' : ''}`}
+        />
       </button>
       
       <AnimatePresence initial={false}>
@@ -42,4 +40,4 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children, defaultOp
       </AnimatePresence>
     </div>
   );
-}; 
+} 
