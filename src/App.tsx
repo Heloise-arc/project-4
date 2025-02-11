@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './components/layout/ThemeProvider';
 import { Navigation } from './components/layout/Navigation';
 import { ErrorBoundary } from './components/layout/ErrorBoundary';
@@ -13,6 +13,7 @@ import { SkipToContent } from './components/layout/SkipToContent';
 import { ScrollToTop } from './components/layout/ScrollToTop';
 import { useImagePreloader } from './utils/ImagePreloader';
 import { TranslationProvider } from './contexts/TranslationProvider';
+import { OTCPage } from './pages/OTCPage';
 
 const App: React.FC = () => {
   const { imagesLoaded } = useImagePreloader();
@@ -24,7 +25,7 @@ const App: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <BrowserRouter>
+      <Router>
         <ThemeProvider>
           <ToastProvider>
             <TranslationProvider>
@@ -35,7 +36,10 @@ const App: React.FC = () => {
                   <SkipToContent />
                   <Navigation />
                   <main id="main-content" className="min-h-screen pt-20">
-                    <AppRoutes />
+                    <Routes>
+                      <Route path="/" element={<AppRoutes />} />
+                      <Route path="/otc" element={<OTCPage />} />
+                    </Routes>
                   </main>
                   <CursorEffect />
                   <FeatureRequestForm />
@@ -45,7 +49,7 @@ const App: React.FC = () => {
             </TranslationProvider>
           </ToastProvider>
         </ThemeProvider>
-      </BrowserRouter>
+      </Router>
     </ErrorBoundary>
   );
 };

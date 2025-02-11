@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    assetsInlineLimit: 4096,
+    assetsInlineLimit: 0,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -27,8 +27,7 @@ export default defineConfig({
       }
     },
     // Force copy all images to output directory
-    copyPublicDir: true,
-    assetsInlineLimit: 0 // Never inline images as base64
+    copyPublicDir: true
   },
   resolve: {
     alias: {

@@ -6,7 +6,7 @@ import { CoinFlipAnimation } from '../landing/CoinFlipAnimation';
 export const MigrationBanner: React.FC = () => {
   return (
     <div className="flex justify-center mb-8">
-      <Link to="/blog/supurr-token-migration">
+      <Link to="/otc">
         <motion.div
           className="px-6 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 cursor-pointer hover:bg-primary/20 transition-colors"
           initial={{ opacity: 0, y: -20 }}
@@ -19,7 +19,7 @@ export const MigrationBanner: React.FC = () => {
         >
           <div className="flex items-center">
             <CoinFlipAnimation />
-            <span className="text-primary text-sm">The $SUPURR Migration</span>
+            <span className="text-primary text-sm">$SUPURR OTC Sale</span>
           </div>
         </motion.div>
       </Link>
